@@ -1,8 +1,4 @@
 ﻿// Read in inputs
-var inpMaxNum = "";
-var inpFizzNum = "";
-var inpBuzzNum = "";
-
 var maxNum = 0;
 var fizzNum = 0;
 var buzzNum = 0;
@@ -25,6 +21,7 @@ while (!int.TryParse(Console.ReadLine(), out buzzNum)) {
 System.Console.WriteLine(maxNum);
 
 // Version 1 - using multiple counters
+System.Console.WriteLine("------- Version 1 --------");
 var fizzCounter = 1;
 var buzzCounter = 1;
 var counter1 = 1;
@@ -48,4 +45,24 @@ while (counter1 <= maxNum) {
     counter1++;
     fizzCounter++;
     buzzCounter++;
+}
+
+// Version 2 - using modulus
+System.Console.WriteLine("------- Version 2 --------");
+var counter2 = 1;
+var line = "";
+
+while (counter2 <= maxNum) {
+    if (counter2 % fizzNum == 0) {
+        line += "Fizz";
+    }
+    if (counter2 % buzzNum == 0) {
+        line += "Buzz";
+    }
+    if (line == "") {
+        line = counter2.ToString();
+    }
+    System.Console.WriteLine(line);
+    line = "";
+    counter2++;
 }
